@@ -1,0 +1,42 @@
+from google.adk.agents import Agent
+from toolbox_core import ToolboxSyncClient
+from google.adk.tools.bigquery import BigQueryCredentialsConfig
+from google.adk.tools.bigquery import BigQueryToolset
+from google.adk.tools.bigquery.config import BigQueryToolConfig
+from google.adk.tools.bigquery.config import WriteMode
+import google.auth
+
+
+
+
+
+# Define a tool configuration to block any write operations
+tool_config = BigQueryToolConfig(write_mode=WriteMode.BLOCKED)
+
+# Define a credentials config - in this example we are using application default
+# credentials
+# https://cloud.google.com/docs/authentication/provide-credentials-adc
+application_default_credentials, _ = google.auth.default()
+credentials_config = BigQueryCredentialsConfig(
+    credentials=application_default_credentials
+)
+
+# Instantiate a BigQuery toolset
+bigquery_toolset = BigQueryToolset(
+    credentials_config=credentials_config, bigquery_tool_config=tool_config
+)
+
+
+root_agent = Agent(
+    name="gcp_releasenotes_agent",
+    model="gemini-2.5-flash",
+   description=(
+        "Agent to answer questions about BigQuery data and models and execute"
+        " SQL queries."
+    ),
+    instruction="""\
+        You are a data science agent with access to several BigQuery tools.
+        Make use of those tools to answer the user's questions.
+    """,
+    tools=bigquery_toolset,
+)

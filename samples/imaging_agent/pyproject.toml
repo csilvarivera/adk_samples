@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "customer-service-agent"
+version = "0.1.0"
+description = "customer service agent demo using Agent Framework"
+license = "Apache License 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic-settings = "^2.8.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+pytest-mock = "^3.14.0"
+scikit-learn = "^1.6.1"
+pytest-cov = "^6.0.0"
+
+
+[tool.pytest.ini_options]
+# addopts = "-vv -s --variables config/dev.yaml" 
+# variables = "config/dev.yaml"
+console_output_style = "progress"
+addopts = "-vv -s --pdb"
+testpaths = ["tests/"]
+markers = [
+    "unit"
+]
+log_level="DEBUG"
+log_cli=true
+log_auto_indent=true
+log_cli_date_format="%Y-%m-%d %H:%M:%S"
+# log_cli_format = '%(asctime)s:%(filename)s:%(funcName)s:%(levelname)s:%(message)s'
+log_cli_format ="[%(asctime)s] %(levelname)s (%(funcName)s) \t [%(pathname)s:%(lineno)d] %(message)s"
+filterwarnings = [
+    #"error",
+    "ignore::UserWarning",
+    # note the use of single quote below to denote "raw" strings in TOML
+    #'ignore:function ham\(\) is deprecated:DeprecationWarning',
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.mason"
