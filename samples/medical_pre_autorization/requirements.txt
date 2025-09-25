@@ -1,0 +1,10 @@
+google-adk
+google-cloud-bigquery
+pandas
+db_dtypes
+cloudpickle
+dotenv
+pymupdf
+reportlab
+pdfplumber
+google-cloud-storage
