@@ -1,11 +1,11 @@
-export AGENT_DISPLAY_NAME="Duplicate Invoice"
+export AGENT_DISPLAY_NAME="Duplicate Invoice SAP"
 export AGENT_DESCRIPTION="Duplicate Invoice Demo for Cymbal "
-export AGENT_ID="Duplicate_Invoice"
-export AS_APP="oem_1746532905481"
-export REASONING_ENGINE="projects/774298971519/locations/us-central1/reasoningEngines/2881674840866029568"
+export AGENT_ID="Duplicate_Invoice SAP"
+export AS_APP="agentspace_1760016997278"
+export REASONING_ENGINE="projects/774298971519/locations/us-central1/reasoningEngines/2370107264833945600"
 
-export PROJECT_ID="csilvariverademo"
-export PROJECT_NUMBER="774298971519"
+export PROJECT_ID="your-project-id"
+export PROJECT_NUMBER="your-number-id"
 
 
 echo "REASONING_ENGINE: $REASONING_ENGINE"
@@ -16,7 +16,7 @@ curl -X POST \
 -H "Authorization: Bearer $(gcloud auth print-access-token)" \
 -H "Content-Type: application/json" \
 -H "X-Goog-User-Project: ${PROJECT_ID}" \
-  "https://discoveryengine.googleapis.com/v1alpha/projects/${PROJECT_NUMBER}/locations/global/collections/default_collection/engines/${AS_APP}/assistants/default_assistant/agents" \
+  "https://us-discoveryengine.googleapis.com/v1alpha/projects/${PROJECT_NUMBER}/locations/us/collections/default_collection/engines/${AS_APP}/assistants/default_assistant/agents" \
 -d '{
       "displayName": "'"${AGENT_DISPLAY_NAME}"'",
       "description": "'"${AGENT_DESCRIPTION}"'",

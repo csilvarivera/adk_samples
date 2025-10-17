@@ -1,4 +1,4 @@
-# Tariff Agent with ADK!
+# Duplicate Invoice Agent with ADK!
 
 
 ## Overview
@@ -16,8 +16,7 @@ This project demonstrates a multi-agent system designed to retrieve invoice deti
 1.  **Clone the Repository:**
 
     ```bash
-    git clone https://gitlab.com/google-cloud-ce/communities/uki-ai-ml-ce/tariff_agent_adk.git
-    cd tariff_agent_adk
+   
     ```
 
 1.  **Create a virtual environment**

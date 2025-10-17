@@ -58,7 +58,8 @@ def deploy_agent():
   remote_agent = agent_engines.create(
       root_agent,
           requirements=[
-        "google-cloud-aiplatform[adk,agent_engines]",
+        "google-cloud-aiplatform[agent_engines]",
+        "google-adk(>=1.14.1, <1.15.0)",
         "google-cloud-bigquery",
         "pandas",
         "db_dtypes",
@@ -68,9 +69,10 @@ def deploy_agent():
       ],
             extra_packages= ["duplicate_invoice_agent/agent.py", 
                           "duplicate_invoice_agent/tools.py", 
+                          "duplicate_invoice_agent/prompts.py", 
                           "duplicate_invoice_agent/common_utils/",
                           "duplicate_invoice_agent/sub_agents/check_duplicate_invoice_agent/"],
-      display_name="duplicate_invoice_agent"
+      display_name="duplicate_invoice_agent_sap"
   )
   print(f"\nSuccessfully created agent: {remote_agent.resource_name}")
 
@@ -99,9 +101,9 @@ if __name__ == "__main__":
     try:
         
         # Call the deployment function with the obtained values
-        # deploy_agent()
-        # print("\nDeployment script finished.")
-        call_agent()
+        deploy_agent()
+        print("\nDeployment script finished.")
+        #call_agent()
 
     except (ValueError, FileNotFoundError) as e: # Catch specific known errors
          print(f"Configuration Error: {e}", file=sys.stderr)
