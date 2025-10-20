@@ -15,6 +15,8 @@
 
 from google.genai import types
 from google.adk import Agent
+from google.adk.tools import load_artifacts
+
 
 from .prompts import DATA_ANALYST_INSTRUCTION
 from .tools import store_pdf
@@ -24,8 +26,10 @@ data_analyst = Agent(
    name="data_analyst",
    description="""Agent that analyzes the details on user insurance policy and 
    medical necessity for a pre-authorization request and creates a report on
-   the same.""",
+   the same.
+   "If there is an uploaded file use the `load_artifacts` tool to load the content of the uploaded file"
+   """,
    instruction= DATA_ANALYST_INSTRUCTION,
    generate_content_config=types.GenerateContentConfig(temperature=0.2),
-   tools=[store_pdf],
+   tools=[store_pdf, load_artifacts],
 )

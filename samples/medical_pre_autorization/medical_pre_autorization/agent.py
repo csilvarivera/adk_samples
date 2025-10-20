@@ -16,6 +16,7 @@
 from google.adk.agents import Agent
 from google.genai import types
 from google.adk.tools.agent_tool import AgentTool
+from google.adk.tools import load_artifacts
 
 from .sub_agents.data_analyst.agent import data_analyst
 from .sub_agents.information_extractor.agent import information_extractor
@@ -25,14 +26,15 @@ root_agent = Agent(
    model='gemini-2.5-flash',
    name='root_agent',
    description="""As a medical pre-authorization agent, you process user 
-   pre-auth request for a treatment.""",
-
+   pre-auth request for a treatment.
+   "If there is an uploaded file use the `load_artifacts` tool to load the content of the uploaded file"
+   
+   """,
    instruction= AGENT_INSTRUCTION,
-
    generate_content_config=types.GenerateContentConfig(temperature=0.2),
-
    tools=[
         AgentTool(agent=information_extractor),
         AgentTool(agent=data_analyst)
+        ,load_artifacts
     ],
 )

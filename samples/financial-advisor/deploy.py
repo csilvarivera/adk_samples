@@ -8,7 +8,7 @@ import vertexai
 from vertexai import agent_engines
 from vertexai.preview import reasoning_engines
 from dotenv import load_dotenv
-from medical_pre_autorization.agent import root_agent
+from financial_advisor.agent import root_agent
 
 
 # load the environment
@@ -58,28 +58,21 @@ def deploy_agent():
   remote_agent = agent_engines.create(
       root_agent,
           requirements=[
-        "google-cloud-aiplatform[adk,agent_engines]",
-        "google-cloud-bigquery",
-        "google-adk",
-        "google-cloud-bigquery",
+        "google-cloud-aiplatform[agent_engines]",
+        "google-adk(>=1.14.1, <1.15.0)",
+        "absl-py (>=2.2.1,<3.0.0)",
         "pandas",
-        "db_dtypes",
-        "dotenv",
-        "pymupdf",
-        "reportlab",
-        "pdfplumber",
-        "google-cloud-storage",
-        "pandas",
-        "db_dtypes",
         "cloudpickle",
         "pydantic",
         "dotenv"
       ],
-            extra_packages= ["medical_pre_autorization/agent.py", 
-                          "medical_pre_autorization/prompts.py", 
-                          "medical_pre_autorization/sub_agents/information_extractor/",
-                          "medical_pre_autorization/sub_agents/data_analyst/"],
-      display_name="medical_pre_autorization_agent"
+      extra_packages= ["financial_advisor/agent.py", 
+                          "financial_advisor/prompt.py", 
+                          "financial_advisor/sub_agents/data_analyst/",
+                          "financial_advisor/sub_agents/trading_analyst/",
+                          "financial_advisor/sub_agents/risk_analyst/",
+                          "financial_advisor/sub_agents/execution_analyst/"],
+      display_name="financial_advisor_agent"
   )
   print(f"\nSuccessfully created agent: {remote_agent.resource_name}")
 
