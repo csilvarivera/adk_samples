@@ -1,11 +1,11 @@
 export AGENT_DISPLAY_NAME="Financial Advisor"
 export AGENT_DESCRIPTION="Financial Advisor Demo for Cymbal "
 export AGENT_ID="Financial Advisor"
-export AS_APP="your_GE_app"
+export AS_APP="oem_1746532905481"
 export PROJECT_ID="<Your_Project>"
 export PROJECT_NUMBER="<Your_Project_Number>"
 
-export REASONING_ENGINE="projects/${PROJECT_NUMBER}/locations/us-central1/reasoningEngines/1946210347954208768"
+export REASONING_ENGINE="projects/774298971519/locations/us-central1/reasoningEngines/1123846019121938432"
 
 
 echo "REASONING_ENGINE: $REASONING_ENGINE"
