@@ -89,8 +89,7 @@ def update_agent():
         "dotenv",
         "markdown-pdf"
       ],
-       extra_packages= ["smd_resistor_abtester_agent/agent.py",
-                        "smd_resistor_abtester_agent/tools/" 
+       extra_packages= ["pdf_summary_agent/agent.py", 
       ],
       display_name="pdf_summarisation_agent "
 )
