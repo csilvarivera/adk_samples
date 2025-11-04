@@ -8,7 +8,7 @@ import vertexai
 from vertexai import agent_engines
 from vertexai.preview import reasoning_engines
 from dotenv import load_dotenv
-from complaint_manager_agent.agent import root_agent
+from pdf_summary_agent.agent import root_agent
 
 
 # load the environment
@@ -60,22 +60,41 @@ def deploy_agent():
           requirements=[
         "google-cloud-aiplatform[agent_engines]",
         "google-adk(>=1.14.1, <1.15.0)",
-        "google-cloud-bigquery",
+        "google-cloud-storage",
         "pandas",
         "db_dtypes",
         "cloudpickle",
         "pydantic",
-        "dotenv"
+        "dotenv",
+        "markdown-pdf"
       ],
-            extra_packages= ["complaint_manager_agent/agent.py", 
-                          "complaint_manager_agent/prompts.py", 
-                          "complaint_manager_agent/tools.py",
-                          "complaint_manager_agent/common_utils/",
-                      ],
-      display_name="complaint_manager_agent"
+       extra_packages= ["pdf_summary_agent/agent.py", 
+      ],
+      display_name="pdf_summarisation_agent "
   )
   print(f"\nSuccessfully created agent: {remote_agent.resource_name}")
 
+def update_agent():
+   # Change to your agent engine ID
+    agent_engines.update(
+    resource_name="projects/774298971519/locations/us-central1/reasoningEngines/233329561553600512",                    # Required.
+    requirements=[
+        "google-cloud-aiplatform[agent_engines]",
+        "google-adk(>=1.14.1, <1.15.0)",
+        "google-cloud-storage",
+        "pandas",
+        "db_dtypes",
+        "cloudpickle",
+        "pydantic",
+        "dotenv",
+        "markdown-pdf"
+      ],
+       extra_packages= ["smd_resistor_abtester_agent/agent.py",
+                        "smd_resistor_abtester_agent/tools/" 
+      ],
+      display_name="pdf_summarisation_agent "
+)
+  
   
 def list_agents():
   for agent in agent_engines.list():
@@ -102,6 +121,7 @@ if __name__ == "__main__":
         
         # Call the deployment function with the obtained values
         deploy_agent()
+        # update_agent()
         print("\nDeployment script finished.")
         #call_agent()
 

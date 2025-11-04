@@ -7,10 +7,10 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-BIGQUERY_PROJECT = os.environ.get("BIGQUERY_PROJECT_ID", "csilvariverademo")
+BIGQUERY_PROJECT = os.environ.get("BIGQUERY_PROJECT_ID", "your_project_id")
 BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET_NAME", "sample")
 BIGQUERY_TABLE = os.environ.get("BIGQUERY_TABLE_NAME", "complaints")
-GOOGLE_CLOUD_PROJECT = os.environ.get("GOOGLE_CLOUD_PROJECT", "csilvariverademo")
+GOOGLE_CLOUD_PROJECT = os.environ.get("GOOGLE_CLOUD_PROJECT", "your_project_id")
 
 # --- Tool Functions for Gemini Agent ---
 
