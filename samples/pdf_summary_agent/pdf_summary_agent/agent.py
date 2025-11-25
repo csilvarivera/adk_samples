@@ -5,6 +5,7 @@ from google.adk.tools.load_artifacts_tool import load_artifacts_tool
 from google.cloud import storage
 import google.genai.types as types
 from markdown_pdf import MarkdownPdf, Section
+from google.adk.tools import VertexAiSearchTool
 
 async def save_pdf_artifact_tool(summary_text:str, tool_context: ToolContext):
     file_name = "output_summary.pdf"

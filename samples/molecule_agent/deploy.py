@@ -8,7 +8,7 @@ import vertexai
 from vertexai import agent_engines
 from vertexai.preview import reasoning_engines
 from dotenv import load_dotenv
-from imaging_agent.agent import root_agent
+from molecule_agent.agent import root_agent
 
 
 # load the environment
@@ -60,12 +60,24 @@ def deploy_agent():
       root_agent,
           requirements=[
         "google-cloud-aiplatform[agent_engines]",
-        "google-adk",
-        "dotenv",
+        "google-adk(>=1.18.0, <1.19.0)",
+        "absl-py (>=2.2.1,<3.0.0)",
+        "pandas",
+        "cloudpickle",
+        "pydantic",
+        "dotenv"
       ],
-      extra_packages= ["imaging_agent/agent.py"
-                       ],
-      display_name="molecular_agent"
+      extra_packages= ["molecule_agent/agent.py", 
+                          "molecule_agent/prompts.py", 
+                          "molecule_agent/tools.py", 
+                          "molecule_agent/sub_agents/tx_gemma_agent/",
+                          "molecule_agent/sub_agents/symptom_agent/"],
+      display_name="molecule_agent_v1",
+      env_vars = {
+        "GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY": "true",
+        "OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT": "true",
+      }
+    
   )
   print(f"\nSuccessfully created agent: {remote_agent.resource_name}")
 
@@ -76,7 +88,7 @@ def list_agents():
 
 def call_agent():
   # Change to your agent engine ID
-  AGENT_ENGINE_ID="projects/774298971519/locations/us-central1/reasoningEngines/2151462780580921344"
+  AGENT_ENGINE_ID="projects/774298971519/locations/us-central1/reasoningEngines/5532474230131654656"
   agent = agent_engines.get(AGENT_ENGINE_ID)
 
   remote_session = agent.create_session(user_id="u_123")
@@ -96,7 +108,8 @@ if __name__ == "__main__":
         # Call the deployment function with the obtained values
         deploy_agent()
         print("\nDeployment script finished.")
-
+        #call_agent()
+        
     except (ValueError, FileNotFoundError) as e: # Catch specific known errors
          print(f"Configuration Error: {e}", file=sys.stderr)
          sys.exit(1)

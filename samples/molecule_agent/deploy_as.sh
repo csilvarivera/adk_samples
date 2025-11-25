@@ -1,8 +1,8 @@
-export AGENT_DISPLAY_NAME="Molecular Agen"
-export AGENT_DESCRIPTION="Molecular Agen"
+export AGENT_DISPLAY_NAME="Molecular Agent"
+export AGENT_DESCRIPTION="Molecular Agent"
 export AGENT_ID="Molecular Agent"
-export AS_APP="hcls-biomed-literature_1742129965515"
-export REASONING_ENGINE="projects/774298971519/locations/us-central1/reasoningEngines/792255302417252352"
+export AS_APP="oem_1746532905481"
+export REASONING_ENGINE="projects/774298971519/locations/us-central1/reasoningEngines/8671483170408890368"
 
 export PROJECT_ID="csilvariverademo"
 export PROJECT_NUMBER="774298971519"
