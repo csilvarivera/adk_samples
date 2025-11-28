@@ -31,7 +31,7 @@ Each sample is a standalone project. To run a sample, follow these general steps
 Change your directory to the specific sample you want to run. For example:
 
 ```sh
-cd mcp_sample
+cd tarif_agent
 ```
 
 ### 2. Set Up the Environment
