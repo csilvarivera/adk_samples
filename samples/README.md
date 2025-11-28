@@ -4,10 +4,23 @@ Welcome to the ADK samples directory! This directory contains a collection of sa
 
 ## 📂 Available Samples
 
-*   **`mcp_sample`**: A "Material Cost Projection" agent that integrates with Vertex AI, BigQuery, and Cloud Storage to answer questions about material costs.
-*   **`tariff_agent`**: An intelligent agent that monitors, analyzes, and provides insights on tariffs using specialized sub-agents for news monitoring and scenario planning.
-
-*(Add more samples to this list as they are created!)*
+| Agent Name | Description |
+| :--- | :--- |
+| [adk_lab](./adk_lab) | Lab environment for ADK. |
+| [auto_insurance_agent](./auto_insurance_agent) | Agent for handling auto insurance claims or queries. |
+| [bq_agent](./bq_agent) | Agent interacting with BigQuery. |
+| [complaint_manager_agent](./complaint_manager_agent) | Agent for managing customer complaints. |
+| [duplicate_invoice_agent](./duplicate_invoice_agent) | Agent for detecting or handling duplicate invoices. |
+| [financial-advisor](./financial-advisor) | Team of specialized AI agents that assists human financial advisors with market analysis and trading strategies. |
+| [lab_analysis](./lab_analysis) | Agent for analyzing lab data. |
+| [mcp_bq_agent](./mcp_bq_agent) | Material Cost Projection agent using BigQuery. |
+| [mcp_sample](./mcp_sample) | Material Cost Projection sample agent that integrates with Vertex AI, BigQuery, and Cloud Storage. |
+| [medical_agent](./medical_agent) | General medical assistant agent. |
+| [medical_pre_autorization](./medical_pre_autorization) | Agent for medical pre-authorization processes. |
+| [molecule_agent](./molecule_agent) | Molecular agent designed to investigate drug or molecule properties, focusing on toxicity prediction. |
+| [mrna_agent](./mrna_agent) | Agent for mRNA related analysis or queries. |
+| [pdf_summary_agent](./pdf_summary_agent) | Agent for summarizing PDF documents. |
+| [tarif_agent](./tarif_agent) | Intelligent agent that monitors, analyzes, and provides insights on tariffs. |
 
 ## 🚀 Getting Started with a Sample
 
