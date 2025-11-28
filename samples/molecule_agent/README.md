@@ -30,13 +30,6 @@ This project demonstrates a molecular agent designed to investigate drug or mole
 
     This command will create a virtual environment and install all dependencies defined in `pyproject.toml`.
 
-4.  **Run the Agent:**
-
-    To run the agent locally or deploy, use `uv run`:
-
-    ```bash
-    uv run python -m deploy
-    ```
 
 ### Option 2: Using pip
 
@@ -52,11 +45,11 @@ This project demonstrates a molecular agent designed to investigate drug or mole
     ```bash
     pip install -r requirements.txt
     ```
+4.  **Execute the developer environment:**
 
-4.  **Run the Agent:**
-
-    ```bash
-    python -m deploy
+    ```
+    adk web
+    
     ```
 
 ## Configuration
@@ -82,6 +75,17 @@ This project demonstrates a molecular agent designed to investigate drug or mole
     TX_GEMMA_ENDPOINT_REGION='us-central1'
     TX_GEMMA_PROJECT_ID='YOUR_PROJECT_ID'
     ```
+
+
+7.  **Deploy to Agent engine:**
+
+    From the root project execute 
+    ```
+    python -m deploy
+    
+    ```
+    Make sure your environment variables are set. For now, the deploy.py is pointing to always create a new Agent Engine. However, you can modify the ```main``` method to either list Agent Engines or test it locally.
+    TODO: Add the ability to add flags for testing 
 
 
 7.  **Deploy to Agentspace:**
