@@ -8,9 +8,7 @@ import vertexai
 from vertexai import agent_engines
 from vertexai.preview import reasoning_engines
 from dotenv import load_dotenv
-from duplicate_invoice_agent.agent import root_agent
-from vertexai import types
-
+from notion_agent.agent import root_agent
 
 
 # load the environment
@@ -59,27 +57,44 @@ def deploy_agent():
   # Deploy to AgentEngine - Check Cloud Logging for detailed issues.
   remote_agent = agent_engines.create(
       root_agent,
-      requirements=[
+          requirements=[
+        "google-cloud-aiplatform[agent_engines]",
+        "google-adk(>=1.18.0, <1.19.0)",
+        "google-auth",
+        "cloudpickle",
+        "pydantic",
+        "dotenv",
+      ],
+       extra_packages= ["notion_agent/agent.py", 
+      ],
+      display_name="notion_test_agent",
+      env_vars = {
+        "GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY": "true",
+        "OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT": "true",
+      }
+  )
+  print(f"\nSuccessfully created agent: {remote_agent.resource_name}")
+
+def update_agent():
+   # Change to your agent engine ID
+    agent_engines.update(
+    resource_name="projects/774298971519/locations/us-central1/reasoningEngines/233329561553600512",                    # Required.
+    requirements=[
         "google-cloud-aiplatform[agent_engines]",
         "google-adk(>=1.14.1, <1.15.0)",
-        "google-cloud-bigquery",
+        "google-cloud-storage",
         "pandas",
         "db_dtypes",
         "cloudpickle",
         "pydantic",
-        "dotenv"
+        "dotenv",
+        "markdown-pdf"
       ],
-      
-      extra_packages= ["duplicate_invoice_agent/agent.py", 
-                          "duplicate_invoice_agent/tools.py", 
-                          "duplicate_invoice_agent/prompts.py", 
-                          "duplicate_invoice_agent/common_utils/",
-                          "duplicate_invoice_agent/sub_agents/check_duplicate_invoice_agent/"],
-      display_name="duplicate_invoice_agent_sap",
-      config={"identity_type": types.IdentityType.AGENT_IDENTITY}
-  )
-  print(f"\nSuccessfully created agent: {remote_agent.resource_name}")
-
+       extra_packages= ["pdf_summary_agent/agent.py", 
+      ],
+      display_name="pdf_summarisation_agent "
+)
+  
   
 def list_agents():
   for agent in agent_engines.list():
@@ -106,6 +121,7 @@ if __name__ == "__main__":
         
         # Call the deployment function with the obtained values
         deploy_agent()
+        # update_agent()
         print("\nDeployment script finished.")
         #call_agent()
 

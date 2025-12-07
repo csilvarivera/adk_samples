@@ -35,65 +35,23 @@ vertexai.init(
     staging_bucket=GOOGLE_CLOUD_STORAGE_BUCKET,
 )
 
-def test_local_agent():
-  
-  # create a local version of your root agent
-  app = reasoning_engines.AdkApp(
-    agent=root_agent,
-    enable_tracing=True,
-  )
-
-  
-  session = app.create_session(user_id="u_123")
-  session
-  for event in app.stream_query(
-    user_id="u_123",
-    session_id=session.id,
-    message="whats the weather in new york",
-  ):
-    print(event)
-
 def deploy_agent():
   # Deploy to AgentEngine - Check Cloud Logging for detailed issues.
   remote_agent = agent_engines.create(
       root_agent,
-          requirements=[
+        requirements=[
         "google-cloud-aiplatform[agent_engines]",
-        "google-adk(>=1.14.1, <1.15.0)",
-        "google-cloud-bigquery",
-        "pandas",
+        "google-adk(>=1.18.1, <1.19.0)",
         "db_dtypes",
         "cloudpickle",
         "pydantic",
         "dotenv"
       ],
-            extra_packages= [
-                          "bq_agent/",
-                      ],
       display_name="bq_agent"
   )
   print(f"\nSuccessfully created agent: {remote_agent.resource_name}")
 
   
-def list_agents():
-  for agent in agent_engines.list():
-    print(agent.display_name)
-
-def call_agent():
-  # Change to your agent engine ID
-  AGENT_ENGINE_ID="projects/774298971519/locations/us-central1/reasoningEngines/2881674840866029568"
-  agent = agent_engines.get(AGENT_ENGINE_ID)
-
-  remote_session = agent.create_session(user_id="u_123")
-  print (f" calling agent {AGENT_ENGINE_ID} with session {remote_session['id']}")
-  for event in agent.stream_query(
-    user_id="u_123",
-    session_id=remote_session['id'],
-    # session_id="5286711940846977024",
-    message="Give me the details of an invoice",
-  ):
-    print(event)
-
   # print (agent.operation_schemas())
 if __name__ == "__main__":
     try:
@@ -101,7 +59,6 @@ if __name__ == "__main__":
         # Call the deployment function with the obtained values
         deploy_agent()
         print("\nDeployment script finished.")
-        #call_agent()
 
     except (ValueError, FileNotFoundError) as e: # Catch specific known errors
          print(f"Configuration Error: {e}", file=sys.stderr)
