@@ -21,9 +21,9 @@ def get_tx_gemma_toxicity(
     Answer:
     """
   
-  TX_GEMMA_PROJECT_ID = os.getenv("TX_GEMMA_PROJECT_ID","csilvariverademo")
-  TX_GEMMA_ENDPOINT_ID = os.getenv("TX_GEMMA_ENDPOINT_ID","6411532677026938880")
-  TX_GEMMA_ENDPOINT_REGION = os.getenv("TX_GEMMA_ENDPOINT_REGION","us-central1")
+  TX_GEMMA_PROJECT_ID = os.getenv("TX_GEMMA_PROJECT_ID","YOUR_PROJECT_ID")
+  TX_GEMMA_ENDPOINT_ID = os.getenv("TX_GEMMA_ENDPOINT_ID","YOUR_ENDPOINT_ID")
+  TX_GEMMA_ENDPOINT_REGION = os.getenv("TX_GEMMA_ENDPOINT_REGION","YOUR_ENDPOINT_REGION")
 
   endpoints = {}
   endpoints["endpoint"] = aiplatform.Endpoint(

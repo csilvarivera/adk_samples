@@ -19,9 +19,9 @@ def get_med_gemma_response(
 
     """
 
-    MED_GEMMA_PROJECT_ID = os.getenv("MED_GEMMA_PROJECT_ID","csilvariverademo")
-    MED_GEMMA_ENDPOINT_ID = os.getenv("MED_GEMMA_ENDPOINT_ID","2968249286925484032")
-    MED_GEMMA_ENDPOINT_REGION = os.getenv("MED_GEMMA_ENDPOINT_REGION","us-central1")
+    MED_GEMMA_PROJECT_ID = os.getenv("MED_GEMMA_PROJECT_ID","YOUR_PROJECT_ID")
+    MED_GEMMA_ENDPOINT_ID = os.getenv("MED_GEMMA_ENDPOINT_ID","YOUR_ENDPOINT_ID")
+    MED_GEMMA_ENDPOINT_REGION = os.getenv("MED_GEMMA_ENDPOINT_REGION","YOUR_ENDPOINT_REGION")
 
     endpoints = {}
     endpoints["endpoint"] = aiplatform.Endpoint(
