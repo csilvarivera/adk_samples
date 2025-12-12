@@ -74,6 +74,10 @@ This project demonstrates a molecular agent designed to investigate drug or mole
     TX_GEMMA_ENDPOINT_ID='YOUR_ENDPOINT_ID'
     TX_GEMMA_ENDPOINT_REGION='us-central1'
     TX_GEMMA_PROJECT_ID='YOUR_PROJECT_ID'
+
+    MED_GEMMA_ENDPOINT_ID='YOUR_ENDPOINT_ID'
+    MED_GEMMA_ENDPOINT_REGION='us-central1'
+    MED_GEMMA_PROJECT_ID='YOUR_PROJECT_ID'
     ```
 
 
