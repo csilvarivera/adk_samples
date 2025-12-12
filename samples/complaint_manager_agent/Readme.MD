@@ -41,6 +41,20 @@ This project demonstrates a multi-agent system designed to retrieve invoice deti
     pip install -r requirements.txt
     ```
 
+
+### Alternative: Install with uv (Recommended)
+You can also use [uv](https://docs.astral.sh/uv/) for faster installation:
+
+1. Install uv:
+   ```bash
+   pip install uv
+   ```
+2. Install dependencies:
+   ```bash
+   uv pip install -r requirements.txt
+   # or if you have a pyproject.toml
+   # uv pip install .
+   ```
 5.  **Set up Environment Variables:**
 
     Rename the file ".env-example" to ".env"

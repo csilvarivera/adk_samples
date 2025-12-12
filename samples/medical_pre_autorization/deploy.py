@@ -58,9 +58,9 @@ def deploy_agent():
   remote_agent = agent_engines.create(
       root_agent,
           requirements=[
-        "google-cloud-aiplatform[adk,agent_engines]",
+        "google-cloud-aiplatform[agent_engines]",
         "google-cloud-bigquery",
-        "google-adk",
+        "google-adk(>=1.18.0, <1.19.0)",
         "google-cloud-bigquery",
         "pandas",
         "db_dtypes",

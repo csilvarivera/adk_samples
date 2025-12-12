@@ -59,7 +59,7 @@ def deploy_agent():
       root_agent,
           requirements=[
         "google-cloud-aiplatform[agent_engines]",
-        "google-adk(>=1.14.1, <1.15.0)",
+        "google-adk(>=1.18.0, <1.19.0)",
         "google-cloud-bigquery",
         "pandas",
         "db_dtypes",

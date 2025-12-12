@@ -5,8 +5,14 @@ description = "customer service agent demo using Agent Framework"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "pydantic-settings>=2.8.1",
+    "google-cloud-aiplatform[agent_engines]",
+    "google-adk(>=1.18.0, <1.19.0)",
+    "pandas",
+    "db_dtypes",
+    "cloudpickle",
+    "dotenv"
 ]
+
 
 [dependency-groups]
 dev = [

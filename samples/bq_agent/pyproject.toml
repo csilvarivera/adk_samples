@@ -1,0 +1,11 @@
+[project]
+name = "bq_agent"
+version = "0.0.1"
+dependencies = [
+    "cloudpickle",
+    "db_dtypes",
+    "dotenv",
+    "google-adk(>=1.18.0, <1.19.0)",
+    "google-cloud-aiplatform[agent_engines]",
+    "pydantic"
+]

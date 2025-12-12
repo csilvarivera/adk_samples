@@ -1,0 +1,11 @@
+[project]
+name = "tarif_agent"
+version = "0.0.1"
+dependencies = [
+    "google-adk",
+    "google-cloud-bigquery",
+    "pandas",
+    "db_dtypes",
+    "cloudpickle",
+    "dotenv"
+]

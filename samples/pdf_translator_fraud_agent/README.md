@@ -45,6 +45,20 @@ This project demonstrates a PDF Translator Fraud Agent designed to translate a P
     ```bash
     pip install -r requirements.txt
     ```
+
+### Alternative: Install with uv (Recommended)
+You can also use [uv](https://docs.astral.sh/uv/) for faster installation:
+
+1. Install uv:
+   ```bash
+   pip install uv
+   ```
+2. Install dependencies:
+   ```bash
+   uv pip install -r requirements.txt
+   # or if you have a pyproject.toml
+   # uv pip install .
+   ```
 4.  **Execute the developer environment:**
 
     ```
@@ -70,7 +84,7 @@ This project demonstrates a PDF Translator Fraud Agent designed to translate a P
     # Agent Engine backend config - bucket for agent engine
     GOOGLE_CLOUD_STORAGE_BUCKET='YOUR_BUCKET_HERE'
 
-7.  **Deploy to Agent engine:**
+2.  **Deploy to Agent engine:**
 
     From the root project execute 
     ```
@@ -80,17 +94,17 @@ This project demonstrates a PDF Translator Fraud Agent designed to translate a P
     Make sure your environment variables are set. For now, the deploy.py is pointing to always create a new Agent Engine. However, you can modify the ```main``` method to either list Agent Engines or test it locally.
     TODO: Add the ability to add flags for testing 
 
+3.  **Deploy to Gemini Enterprise:**
 
-7.  **Deploy to Agentspace:**
+    Modify the environment variables in the deploy_as.sh bash file with your data:
 
-    Modify the environment variables in the `deploy_as.sh` bash file with your data:
-
-    -  Agentspace app Id
+    -  Gemini Enterprise app Id
     -  Reasoning Engine Id
-    -  Agent Id
+    -  Agent Id 
 
-    From the root project execute:
-    ```bash
-    sh deploy_as.sh
+    From the root project execute 
     ```
-    IMPORTANT: Your project needs to be allowlisted for this command to work. This functionality is still in private preview and should be used for demo purposes only.
+    sh deploy_as.sh
+    
+    ```
+    IMPORTANT: Your prpoject needs to be allowlisted for this command to work. This functionality is still in private preview and should be use for demo purposes only

@@ -1,10 +1,16 @@
-google-adk
+google-cloud-aiplatform[agent_engines]
+google-cloud-bigquery
+google-adk(>=1.18.0, <1.19.0)
 google-cloud-bigquery
 pandas
-db_dtypes
-cloudpickle
+db_dtypes   
 dotenv
 pymupdf
 reportlab
 pdfplumber
 google-cloud-storage
+pandas
+db_dtypes  
+cloudpickle
+pydantic
+dotenv

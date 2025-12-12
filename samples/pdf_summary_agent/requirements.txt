@@ -1,5 +1,7 @@
-google-adk
+google-cloud-aiplatform[agent_engines]
+google-adk(>=1.18.0, <1.19.0)
 google-cloud-bigquery
+google-cloud-storage
 pandas
 db_dtypes
 cloudpickle

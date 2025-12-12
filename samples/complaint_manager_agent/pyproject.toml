@@ -1,0 +1,13 @@
+[project]
+name = "complaint_manager_agent"
+version = "0.0.1"
+dependencies = [
+    "google-cloud-aiplatform[agent_engines]",
+    "google-adk(>=1.18.0, <1.19.0)",
+    "google-cloud-bigquery",
+    "pandas",
+    "db_dtypes",
+    "cloudpickle",
+    "pydantic",
+    "dotenv"
+]

@@ -20,7 +20,7 @@ This project demonstrates a multi-agent system designed to understand the impact
     cd tariff_agent_adk
     ```
 
-1.  **Create a virtual environment**
+2.  **Create a virtual environment**
 
     ```
     python3.11 -m venv .venv
@@ -37,12 +37,29 @@ This project demonstrates a multi-agent system designed to understand the impact
     This activates the virtual environment, allowing you to run commands within the project's environment.
     Make sure the environment is active.
 
-4.  **Install dependencies:**
+### Option 1: Using uv (Recommended)
+
+1.  **Install uv:**
+
+    If you haven't installed `uv` yet, follow the instructions [here](https://github.com/astral-sh/uv).
+
+2.  **Sync dependencies:**
+
+    ```bash
+    uv sync
+    ```
+
+    This command will create a virtual environment and install all dependencies defined in `pyproject.toml`.
+
+
+### Option 2: Using pip
+
+1.  **Install dependencies:**
     ```
     pip install -r requirements.txt
     ```
 
-5.  **Set up Environment Variables:**
+4.  **Set up Environment Variables:**
 
     Rename the file ".env-example" to ".env"
     Fill the below values:
@@ -58,14 +75,14 @@ This project demonstrates a multi-agent system designed to understand the impact
     GOOGLE_CLOUD_PROJECT='YOUR_VALUE_HERE'
     GOOGLE_CLOUD_LOCATION='YOUR_VALUE_HERE'
     ```
-6.  **Execute the developer environment:**
+5.  **Execute the developer environment:**
 
     ```
     adk web
     
     ```
 
-7.  **Deploy to Agent engine:**
+6.  **Deploy to Agent engine:**
 
     From the root project execute 
     ```
@@ -75,11 +92,11 @@ This project demonstrates a multi-agent system designed to understand the impact
     Make sure your environment variables are set. For now, the deploy.py is pointing to always create a new Agent Engine. However, you can modify the ```main``` method to either list Agent Engines or test it locally.
     TODO: Add the ability to add flags for testing 
 
-8.  **Deploy to Agentspace:**
+7.  **Deploy to Gemini Enterprise:**
 
     Modify the environment variables in the deploy_as.sh bash file with your data:
 
-    -  Agentspace app Id
+    -  Gemini Enterprise app Id
     -  Reasoning Engine Id
     -  Agent Id 
 
