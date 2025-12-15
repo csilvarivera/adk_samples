@@ -19,7 +19,9 @@ Welcome to the ADK samples directory! This directory contains a collection of sa
 | [medical_pre_autorization](./medical_pre_autorization) | Agent for medical pre-authorization processes. |
 | [molecule_agent](./molecule_agent) | Molecular agent designed to investigate drug or molecule properties, focusing on toxicity prediction. |
 | [mrna_agent](./mrna_agent) | Agent for mRNA related analysis or queries. |
+| [notion_agent](./notion_agent) | Agent for interacting with Notion. |
 | [pdf_summary_agent](./pdf_summary_agent) | Agent for summarizing PDF documents. |
+| [pdf_translator_fraud_agent](./pdf_translator_fraud_agent) | Agent to translate a PDF document to English and analyze it for fraud. |
 | [tarif_agent](./tarif_agent) | Intelligent agent that monitors, analyzes, and provides insights on tariffs. |
 
 ## 🚀 Getting Started with a Sample
