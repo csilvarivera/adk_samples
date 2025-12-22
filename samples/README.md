@@ -22,7 +22,7 @@ Welcome to the ADK samples directory! This directory contains a collection of sa
 | [notion_agent](./notion_agent) | Agent for interacting with Notion. |
 | [pdf_summary_agent](./pdf_summary_agent) | Agent for summarizing PDF documents. |
 | [pdf_translator_fraud_agent](./pdf_translator_fraud_agent) | Agent to translate a PDF document to English and analyze it for fraud. |
-| [tarif_agent](./tarif_agent) | Intelligent agent that monitors, analyzes, and provides insights on tariffs. |
+| [tariff_agent](./tariff_agent) | Intelligent agent that monitors, analyzes, and provides insights on tariffs. |
 
 ## 🚀 Getting Started with a Sample
 
@@ -33,7 +33,7 @@ Each sample is a standalone project. To run a sample, follow these general steps
 Change your directory to the specific sample you want to run. For example:
 
 ```sh
-cd tarif_agent
+cd tariff_agent
 ```
 
 ### 2. Set Up the Environment
