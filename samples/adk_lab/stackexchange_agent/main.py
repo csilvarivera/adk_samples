@@ -41,7 +41,7 @@ def main():
         name='Search StackExchange',
         description='returns stackExchange answer',
         tags=['Search stackExchange'],
-        examples=['Search repository 123', 'Give me the details of repository 456'],
+        examples=['Search for NullPointerException in Java', 'How to fix index out of bounds error in Python'],
     )
     
     agent_card = AgentCard(

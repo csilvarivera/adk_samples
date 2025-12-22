@@ -140,14 +140,6 @@ class GithubAgentExecutor(AgentExecutor):
         raise ServerError(error=UnsupportedOperationError())
 
 
-########################################################
-## TODO 3:
-## Configure 'AgentSkill' for 'GithubAgent-A2A' AgentCard
-## If you face difficulties while implementing this, 
-## refer https://a2a-protocol.org/latest/tutorials/python/3-agent-skills-and-card/#agent-skills
-########################################################
-
-
 @click.command()
 def main():
     """Starts the Github Agent A2A server, configured for Cloud Run."""
@@ -180,7 +172,7 @@ def main():
         id='list_issues',
         name='List Issues',
         description='returns a list of issues',
-        tags=['Lisy Issues'],
+        tags=['List Issues'],
         examples=['List all issues', 'Give me a list of issues'],
     )
 

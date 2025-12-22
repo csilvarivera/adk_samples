@@ -65,14 +65,11 @@ def deploy_agent():
         "pandas",
         "cloudpickle",
         "pydantic",
-        "dotenv"
+        "dotenv",
+        "molecule_agent-0.1.0-py3-none-any.whl"
       ],
-      extra_packages= ["molecule_agent/agent.py", 
-                          "molecule_agent/prompts.py", 
-                          "molecule_agent/tools.py", 
-                          "molecule_agent/sub_agents/tx_gemma_agent/",
-                          "molecule_agent/sub_agents/symptom_agent/"],
-      display_name="molecule_agent_v1",
+      extra_packages= ["dist/molecule_agent-0.1.0-py3-none-any.whl"],
+      display_name="molecule_agent_v2",
       env_vars = {
         "GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY": "true",
         "OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT": "true",

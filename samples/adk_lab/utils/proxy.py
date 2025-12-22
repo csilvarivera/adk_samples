@@ -48,19 +48,9 @@ def _get_config_value(env_var: str, secret_name: str | None = None) -> str | Non
 # --- Project Configuration ---
 dotenv.load_dotenv()
 
-################################
-## TODO 1:
-## Set your PROJECT_NUMBER
-## Replace TODO 
-## with your project number
-# eg.
-# PROJECT_NUMBER = os.getenv("PROJECT_NUMBER","604802292115")
-#################################
-
-PROJECT_NUMBER = os.getenv("PROJECT_NUMBER","")
-
-
+PROJECT_NUMBER = os.getenv("PROJECT_NUMBER", "")
 PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
+
 # --- Secret Constants ---
 GITHUB_TOKEN = _get_config_value("GITHUB_PERSONAL_ACCESS_TOKEN", "GITHUB_PERSONAL_ACCESS_TOKEN")
 
@@ -75,42 +65,21 @@ DATASTORE_ID = _get_config_value("DATASTORE_ID", "DATASTORE_ID")
 
 STAGING_BUCKET_URI = f"gs://{PROJECT_ID}"
 
-#########################
-## TODO 4:
-## GitHub Agent local URL
-## eg.
-## GITHUB_AGENT_URL       = f"http://localhost:8080/"
-#########################
+# Using environment variables for URLs if provided, otherwise default to local for testing
+# For remote deployment, these should be set via Secret Manager or environment variables
+GITHUB_AGENT_URL = os.getenv("GITHUB_AGENT_URL")
+if not GITHUB_AGENT_URL:
+    if PROJECT_NUMBER:
+        GITHUB_AGENT_URL = f"https://github-agent-{PROJECT_NUMBER}.us-central1.run.app/"
+    else:
+        GITHUB_AGENT_URL = "http://localhost:8080/"
 
-GITHUB_AGENT_URL= f"http://localhost:8080/"
-
-######################################
-## TODO 5:
-## GitHub Agent Cloud run remote URL
-## eg.
-## GITHUB_AGENT_URL       = f"https://github-agent-{PROJECT_NUMBER}.us-central1.run.app/"
-######################################
-
-GITHUB_AGENT_URL = f"https://github-agent-{PROJECT_NUMBER}.us-central1.run.app/"
-
-
-#################################
-## TODO 7:
-## StackExchange Agent local URL
-## eg.
-## STACKEXCHANGE_AGENT_URL       = f"http://localhost:8080/"
-#################################
-
-STACKEXCHANGE_AGENT_URL = f"http://localhost:8080/"
-
-##################################
-## TODO 8:
-## StackExchange Agent Cloud run remote URL
-## eg.
-## STACKEXCHANGE_AGENT_URL = f"https://stackexchange-agent-{PROJECT_NUMBER}.us-central1.run.app/"
-##################################
-
-STACKEXCHANGE_AGENT_URL = f"https://stackexchange-agent-{PROJECT_NUMBER}.us-central1.run.app/"
+STACKEXCHANGE_AGENT_URL = os.getenv("STACKEXCHANGE_AGENT_URL")
+if not STACKEXCHANGE_AGENT_URL:
+    if PROJECT_NUMBER:
+        STACKEXCHANGE_AGENT_URL = f"https://stackexchange-agent-{PROJECT_NUMBER}.us-central1.run.app/"
+    else:
+        STACKEXCHANGE_AGENT_URL = "http://localhost:8001/"
 
 
 

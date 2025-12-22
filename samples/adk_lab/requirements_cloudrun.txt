@@ -4,7 +4,6 @@ langgraph
 langchain-core
 uvicorn
 google-cloud-logging
-a2a-sdk
 dotenv
 google-adk
 google-api-python-client
