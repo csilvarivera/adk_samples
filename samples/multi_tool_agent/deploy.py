@@ -8,7 +8,7 @@ import vertexai
 from vertexai import agent_engines
 from vertexai.preview import reasoning_engines
 from dotenv import load_dotenv
-from molecule_agent.agent import root_agent
+from multi_tool_agent.agent import root_agent
 
 
 # load the environment
@@ -60,19 +60,12 @@ def deploy_agent():
       root_agent,
           requirements=[
         "google-cloud-aiplatform[agent_engines]",
-        "google-adk(>=1.18.0, <1.19.0)",
-        "absl-py (>=2.2.1,<3.0.0)",
-        "pandas",
-        "cloudpickle",
-        "pydantic",
-        "dotenv"
-        ],
-      extra_packages= ["molecule_agent/agent.py",
-                "molecule_agent/tools.py",
-                "molecule_agent/prompts.py",
-                "molecule_agent/sub_agent/symptom_agent/",
-                "molecule_agent/sub_agent/tx_gemma_agent"],
-      display_name="molecule_agent_v2",
+        "google-adk(>=1.19.0, <1.20.0)",
+        "dotenv",
+      ],
+      extra_packages=["multi_tool_agent/agent.py",
+      "multi_tool_agent/tools.py"],
+      display_name="multi_tool_agent_v1",
       env_vars = {
         "GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY": "true",
         "OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT": "true",
