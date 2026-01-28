@@ -2,7 +2,7 @@
 
 Welcome to the ADK samples directory! This directory contains a collection of sample applications built using the Agent Development Kit. Each sample is a self-contained project designed to demonstrate a specific capability or use case of the ADK, particularly for building generative AI agents on Google Cloud.
 
-## 📂 Available Samples
+## Available Samples
 
 | Agent Name | Description |
 | :--- | :--- |
@@ -20,11 +20,12 @@ Welcome to the ADK samples directory! This directory contains a collection of sa
 | [molecule_agent](./molecule_agent) | Molecular agent designed to investigate drug or molecule properties, focusing on toxicity prediction. |
 | [mrna_agent](./mrna_agent) | Agent for mRNA related analysis or queries. |
 | [notion_agent](./notion_agent) | Agent for interacting with Notion. |
+| [multi_tool_agent](./multi_tool_agent) | Agent with weather and calculator tools. |
 | [pdf_summary_agent](./pdf_summary_agent) | Agent for summarizing PDF documents. |
 | [pdf_translator_fraud_agent](./pdf_translator_fraud_agent) | Agent to translate a PDF document to English and analyze it for fraud. |
 | [tariff_agent](./tariff_agent) | Intelligent agent that monitors, analyzes, and provides insights on tariffs. |
 
-## 🚀 Getting Started with a Sample
+## Getting Started with a Sample
 
 Each sample is a standalone project. To run a sample, follow these general steps.
 
