@@ -79,7 +79,11 @@ def deploy_agent():
                           "medical_pre_autorization/prompts.py", 
                           "medical_pre_autorization/sub_agents/information_extractor/",
                           "medical_pre_autorization/sub_agents/data_analyst/"],
-      display_name="medical_pre_autorization_agent"
+      display_name="medical_pre_autorization_agent",
+      env_vars = {
+        "GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY": "true",
+        "OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT": "true",
+      }
   )
   print(f"\nSuccessfully created agent: {remote_agent.resource_name}")
 
@@ -88,9 +92,9 @@ def list_agents():
   for agent in agent_engines.list():
     print(agent.display_name)
 
-def call_agent():
+def call_agent(agent_engine_id):
   # Change to your agent engine ID
-  AGENT_ENGINE_ID="projects/774298971519/locations/us-central1/reasoningEngines/8540113521122213888"
+  AGENT_ENGINE_ID=f"projects/{PROJECT_ID}/locations/{LOCATION}/reasoningEngines/{agent_engine_id}"
   agent = agent_engines.get(AGENT_ENGINE_ID)
 
   remote_session = agent.create_session(user_id="u_123")
