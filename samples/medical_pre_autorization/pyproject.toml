@@ -1,21 +1,18 @@
 [project]
 name = "medical_pre_autorization"
 version = "0.0.1"
+description = "Medical Pre-Authorization Agent using Google ADK"
+readme = "README.md"
+requires-python = ">=3.9"
 dependencies = [
     "google-cloud-aiplatform[agent_engines]",
-    "google-cloud-bigquery",
-    "google-adk(>=1.18.0, <1.19.0)",
-    "google-cloud-bigquery",
+    "google-adk(>=1.22.0, <1.23.0)",
     "pandas",
     "db_dtypes",
     "dotenv",
     "pymupdf",
     "reportlab",
     "pdfplumber",
-    "google-cloud-storage",
-    "pandas",
-    "db_dtypes",
     "cloudpickle",
     "pydantic",
-    "dotenv"
 ]
